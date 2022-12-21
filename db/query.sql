@@ -1,16 +1,17 @@
 SELECT
-    id
-    dpt_name
-    position_id
-    title
-    salary
-    dpt_id
-    employee_id
-    first_name
-    last_name
-    position_id
-    manager_id
-
-FROM ((department
-JOIN position ON dpt_id = position.department_id)
-JOIN employee ON position_id = employee.position_id)
+    employee.id,
+    employee.first_name,
+    employee.last_name,
+    position.title,
+    department.dpt_name AS department,
+    position.salary,
+    CONCAT(manager.first_name, ' ', manager.last_name) AS manager
+    
+FROM 
+	employee 
+LEFT JOIN 
+	position ON employee.position_id = position.id
+LEFT JOIN 
+	department on position.dpt_id = department.id
+LEFT JOIN
+	employee manager on manager.id = employee.manager_id;
