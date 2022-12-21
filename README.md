@@ -87,4 +87,4 @@ Link to GitHub:
 
 Link to video example: 
 
-[Video Example](https://support.insomnia.rest/category/152-using-insomnia)
+[Video Example](https://drive.google.com/file/d/1c8mmJTa5n-4QLD-tBWQYyBhA6PrVMdXB/view)
