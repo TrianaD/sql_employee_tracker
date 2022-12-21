@@ -28,4 +28,63 @@ To develop an interface that allows an easy view and interaction with stored dat
 * WHEN I choose to update an employee role
 * THEN I am prompted to select an employee to update and their new role and this information is updated in the database
 
+## INSTALLATION 
 
+User will need to install dotenv, express, inquirer, mysql2, and console table. To install go to terminal and do npm i to run all needed applications. 
+
+### Required Modules / Packages:
+
+* Inquirer Package
+* Node.js
+* mysql2 Package
+* dotenv Package
+
+## USAGE 
+
+The following screenshots show examples of the interaction and options presented to the user when application is initiated. 
+
+Initial prompt:
+
+![showing prompt initial options](./assets/initial_prompt.png)
+
+
+The image below shows al the departments added to the database:
+
+![showing department table](./assets/view_dpts.png)
+
+
+This image shows all current jobs in the database:
+
+![showing jobs table](./assets/view_jobs.png)
+
+
+Below shows a table of all employees and their applicable titles, salary, departments, and managers. 
+
+![showing employees table](./assets/view_emp.png)
+
+
+Adding an employee example:
+
+![showing added employee within table](./assets/adding_employee.png)
+
+
+Updating an employee example:
+
+![showing updates made to employees table](./assets/update_employee.png)
+
+
+Once the user is done making updates, they can select Cancel to end application: 
+
+![showing cancel selection](./assets/cancel.png)
+
+
+## LINKS 
+
+Link to GitHub:
+
+[GitHub Documentation](https://github.com/TrianaD/sql_employee_tracker)
+
+
+Link to video example: 
+
+[Video Example](https://support.insomnia.rest/category/152-using-insomnia)

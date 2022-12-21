@@ -1,16 +1,10 @@
 const mysql = require ('mysql2');
 const inquirer = require ('inquirer');
-// const cTable = require ('console.table');
-// const { Module } = require('module');
+
 
 require("dotenv").config();
 
 
-// const mysqlConnection = require('./connection');
-// const { response } = require('express');
-
-
-// initial prompt response and connection to database
 const mysqlConnection = mysql.createConnection(
     {
         host: 'localhost',
@@ -19,7 +13,6 @@ const mysqlConnection = mysql.createConnection(
         password: process.env.DB_PASSWORD
     },
     console.log('Connected to the employee tracker database'),
-    // afterConnected(),
     console.log ("------------------------"),
     console.log ("------------------------"),
     console.log ("  EMPLOYEE TRACKER APP  "),
@@ -127,17 +120,17 @@ const viewPosition = () => {
 const addPosition = () => {
     inquirer.prompt( [ 
         {
-        name: 'addtitle',
+        name: 'add_title',
         type: 'input',
         message: 'What is the their job title?',
         },
         {
-        name: 'addsalary',
+        name: 'add_salary',
         type: 'input',
         message: 'What is their job salary?',
         },
         {
-        name: 'adddpt_id',
+        name: 'add_dpt_id',
         type: 'input',
         message: 'What is their deptartment ID?',
         },
@@ -145,7 +138,7 @@ const addPosition = () => {
     .then(answer => {
         mysqlConnection.query(
             'INSERT INTO position (title, salary, dpt_id) VALUES (?,?,?)',
-            [answer.addtitle, answer.addsalary, answer.adddpt_id],
+            [answer.add_title, answer.add_salary, answer.add_dpt_id],
             function (err, res) {
                 if (err) throw err;
                 console.log('Job added!');
@@ -190,7 +183,7 @@ const addEmployee = () => {
     ])
     .then(answer => {
         mysqlConnection.query(
-            'INSERT INTO position (first_name, last_name, position_id, manager_id) VALUES (?,?,?,?)',
+            'INSERT INTO employee (first_name, last_name, position_id, manager_id) VALUES (?,?,?,?)',
             [answer.f_name, answer.l_name, answer.position_id, answer.mgr_id],
             function (err, res) {
                 if (err) throw err;
@@ -217,7 +210,7 @@ const updateEmployee = () => {
     .then(answer => {
         mysqlConnection.query(
             'UPDATE employee SET position_id=? WHERE id=?',
-            [answer.id, answer.positionID],
+            [answer.positionID, answer.id],
             function (err, res) {
                 if (err) throw err;
                 console.log('Employee position updated!');
